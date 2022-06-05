@@ -21,20 +21,18 @@ const dataBelanjaan = [
 ];
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const listBelanjaan = null;
+const listBelanjaan = (a) => a.map(b=>`- ${b.nama} x ${b.kuantitas}`)
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const totalBelanjaan = null;
+const totalBelanjaan = (a) => a.reduce((b,c)=> b+(c.harga*c.kuantitas), 0)
 
 // ! JANGAN DIMODIFIKASI
 const main = () => {
   console.log("Selamat datang customer");
 
   console.log("Belanjaan Anda adalah:");
-  console.log(listBelanjaan?.(dataBelanjaan)?.join("\n"));
-  console.log(
-    "\nTotal Belanjaan Anda adalah Rp. " + totalBelanjaan?.(dataBelanjaan)
-  );
+  console.log(listBelanjaan(dataBelanjaan).join("\n"));
+  console.log("\nTotal Belanjaan Anda adalah Rp. " + totalBelanjaan(dataBelanjaan));
 };
 
 main();
